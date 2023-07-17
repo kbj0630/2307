@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .container {
+                width: 500px;
+                height: 500px;
+                text-align: center;
+            }
+            #img {
+                width: 100%;
+                height: 100%;
+            }
+        </style>
+    </head>
+<body>
+    <div class="container">
+        <img id = "img" src = "./images/graph1.jpg">
+        <button onclick="togglechange()">toggle</button> 
+    </div>
+
+    <script>
+        function togglechange() {
+            document.getElementById("img").src = "./images/graph2.jpg"
+        }
+    </script>
+</body>
+</html>
