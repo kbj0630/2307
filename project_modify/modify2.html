@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Titration Experiment Program</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="pH">Titration Experiment Program</div>
+        
+    <div class="middle" style="margin-bottom: 100px;">
+        <div class="table-container">
+            <div class="table"></div>
+        </div>
+        <div class="gp">
+            <img id="img" src="graph.png" alt="" />
+            <div class="button-container">
+                <button onclick="change2basic()">change to basic graph</button>
+                <button onclick="change2gran()">change to gran plot</button>
+                <button onclick="change2differ()">change to derivative graph</button>
+            </div> 
+        </div>
+    </div>
+    
+    <div class="all_container">
+        <div class="calculator-container">
+            <label for="a">a:</label>
+            <input type="number" id="a" />
+      
+            <label for="M1">M1(M) :</label>
+            <input type="number" id="M1" />
+      
+            <label for="V1">V1(mL):</label>
+            <input type="number" id="V1" />
+      
+            <label for="b">b:</label>
+            <input type="number" id="b" />
+      
+            <label for="V2">V2(mL):</label>     
+            <input type="number" id="V2" />
+      
+            <button onclick="calculateM2()">ENTER</button>
+        </div>
+        <p id="result"></p>
+    </div>
+
+    <script>
+      function calculateM2() {
+        var a = parseFloat(document.getElementById("a").value);
+        var M1 = parseFloat(document.getElementById("M1").value);
+        var V1 = parseFloat(document.getElementById("V1").value);
+        var b = parseFloat(document.getElementById("b").value);
+        var V2 = parseFloat(document.getElementById("V2").value);
+
+        var M2 = (a * M1 * V1) / (b * V2);
+
+        document.getElementById("result").innerHTML = "result: " + M2 +"M";
+      }
+
+      function change2gran() {
+        document.getElementById("img").src = "grangraph.png"
+      }
+
+      function change2basic() {
+        document.getElementById("img").src = "graph.png"
+      }
+
+      function change2differ() {
+        document.getElementById("img").src = "differgraph.png"
+      }
+    </script>
+
+    <style>
+        .middle {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 20px 0;
+        }
+
+        .table-container {
+            width: 40%;
+            margin-left: 40px;
+        }
+
+        .gp {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 60%;
+            border: 2px solid black;
+            padding: 10px;
+        }
+
+        #img {
+          max-width: 100%;
+          height: 90%;
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .all_container {
+            display: flex;
+            justify-content: center;
+            margin: 20px;
+        }
+
+        .calculator-container {
+            width: 70%;
+            margin-right: 20px;
+        }
+
+        #result {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 30%;
+            height: 50px;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+    </style>
+</body>
+</html>

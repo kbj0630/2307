@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Titration Experiment Program</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="pH">Titration Experiment Program</div>
+        
+    <div class="middle">
+        <div>
+            <div class="table"></div>
+        </div>
+        <div class = "gp">
+            <img id = "img" img src="graph.png" alt="" />
+                <div>
+                    <button onclick="change2basic()">change to basic graph</button>
+                    <button onclick="change2gran()">change to gran plot</button>
+                    <button onclick="change2differ()">change to derivate graph</button>
+                </div> 
+        </div>
+    </div>
+    
+    <div class="all_container">
+        <div class="calculator-container">
+    
+        <label for="a">a:</label>
+        <input type="number" id="a" />
+      
+        <label for="M1">M1(M) :</label>
+        <input type="number" id="M1" />
+      
+        <label for="V1">V1(mL):</label>
+        <input type="number" id="V1" />
+      
+        <label for="b">b:</label>
+        <input type="number" id="b" />
+      
+        <label for="V2">V2(mL):</label>     
+        <input type="number" id="V2" />
+      
+        <button onclick="calculateM2()">ENTER</button>
+        </div>
+        <p id="result"></p>
+    </div>
+
+
+  <script>
+    function calculateM2() {
+      var a = parseFloat(document.getElementById("a").value);
+      var M1 = parseFloat(document.getElementById("M1").value);
+      var V1 = parseFloat(document.getElementById("V1").value);
+      var b = parseFloat(document.getElementById("b").value);
+      var V2 = parseFloat(document.getElementById("V2").value);
+
+      var M2 = (a * M1 * V1) / (b * V2);
+
+      document.getElementById("result").innerHTML = "result: " + M2 +"M";
+    }
+
+    function change2gran() {
+      document.getElementById("img").src = "grangraph.png"
+    }
+    function change2basic() {
+      document.getElementById("img").src = "graph.png"
+    }
+    function change2differ() {
+      document.getElementById("img").src = "differgraph.png"
+    }
+  </script>
+
+  <style>
+    .middle{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pH{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 50px;
+    margin: 10px;
+}
+
+.gp{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 600px;
+    height: 400px;
+    border: 2px solid black;
+}
+
+.question{
+    border: 2px solid black;
+    width: 300px;
+    height: 150px;
+    margin-top: 10px;
+}
+
+.table{
+    border: 2px solid black;
+    padding: 10px;
+
+    width: 350px;
+    height: 350px;
+    margin-top: 10px;
+    overflow: auto;
+}
+
+#img {
+    max-width: 100%;
+    height: 90%;
+}
+
+.gp button {
+    margin: 5px;
+}
+
+.dataframe{
+    width: 320px;
+    justify-content: center;
+    justify-self: center;
+}
+
+.calculator-container {
+    width: 600px;
+    height: 30px;
+    margin: 5px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+    display:  flex  ;
+    justify-content: space-evenly;
+    align-items: center;
+  
+  }
+
+  .calculator-container h2 {
+    text-align: center;
+  }
+
+  .calculator-container label {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .calculator-container input[type="number"] {
+    width: 50px;
+    padding: 5px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+  }
+
+  .calculator-container button {
+    display: block;
+    width: 80px;
+    margin-top: 10px;
+    padding: 8px;
+    border-radius: 3px;
+    border: none;
+    background-color: #4CAF50;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  .calculator-container button:hover {
+    background-color: #45a049;
+  }
+
+  .calculator-container #result {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 18px;
+  }
+
+.all_container{
+  display: flex;
+  margin-left: 150px;
+}
+
+#result{
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 150px;
+  height: 50px;
+  margin-right: 250px;
+  background-color: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+  </style>
+
+</body>
+</html>
